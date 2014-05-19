@@ -1,0 +1,39 @@
+﻿@using System.Web.Optimization
+@using TaskManager.Infrastructure.Constants
+@using TaskManager.Web.App_Start
+@using TaskManager.Web.Controllers
+
+@model TaskManager.Presentation.Models.LoginModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    @Scripts.Render(WebsiteBundles.JsLayout);
+    @Styles.Render(WebsiteBundles.CssLayout)
+
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <img src="~/Content/Images/logo.png" class="col-lg-offset-2"/>
+        @using (Html.BeginForm(Actions.Login, LoginController.Name, FormMethod.Post, new Dictionary<string, object> { { "class", "form-signin" } }))
+        {
+            <h2 class="form-signin-heading">Please sign in</h2>
+            @Html.TextBoxFor(m => m.Username, new Dictionary<string, object> { { "class", "form-control" }, { "placeholder", "Enter username..." }, { "required", null }, { "autofocus", null } })
+            @Html.TextBoxFor(m => m.Password, new Dictionary<string, object> { { "class", "form-control" }, { "type", "password" }, { "placeholder", "Enter password..." }, { "required", null } })
+
+            <label class="checkbox">
+                @Html.CheckBoxFor(m => m.Persistent)
+                Remember me
+            </label>
+            <button class="btn btn-lg btn-primary btn-block form-control" type="submit">Sign in</button>
+        }
+    </div>
+</body>
+</html>
+

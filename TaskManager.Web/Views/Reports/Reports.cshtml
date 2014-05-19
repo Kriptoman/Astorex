@@ -1,0 +1,46 @@
+﻿@using TaskManager.Infrastructure.Constants
+@model TaskManager.Presentation.Models.ReportsModel
+@{
+    Layout = Views.Layout;
+}
+
+<div>
+    <table class="table">
+        <tr>
+            <td>
+                Post: 
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Type, new List<SelectListItem> { new SelectListItem() { Text = "Developer", Value = "0" }, new SelectListItem() { Text = "QA", Value = "1" } })
+            </td>
+            <td>
+                Employee: 
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.EmployeeId, Model.Staff)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Start date: 
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.PeriodStart)
+            </td>
+            <td>
+                End date: 
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.PeriodEnd)
+            </td>
+        </tr>
+    </table>
+
+    <button class="btn btn-primary">Report</button>
+</div>
+
+<hr/>
+
+<div id="report-view">
+    
+</div>

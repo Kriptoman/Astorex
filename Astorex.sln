@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Web", "TaskManager.Web\TaskManager.Web.csproj", "{860A5853-0455-46BB-A9F8-B622259B6245}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Presentation", "TaskManager.Presentation\TaskManager.Presentation.csproj", "{00F2AD35-2208-4C26-822F-20DC7C27E0C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Infrastructure", "TaskManager.Infrastructure\TaskManager.Infrastructure.csproj", "{A2096F40-A1C7-4628-BA58-FF68E9FD8573}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{860A5853-0455-46BB-A9F8-B622259B6245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{860A5853-0455-46BB-A9F8-B622259B6245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{860A5853-0455-46BB-A9F8-B622259B6245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{860A5853-0455-46BB-A9F8-B622259B6245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00F2AD35-2208-4C26-822F-20DC7C27E0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00F2AD35-2208-4C26-822F-20DC7C27E0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00F2AD35-2208-4C26-822F-20DC7C27E0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00F2AD35-2208-4C26-822F-20DC7C27E0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2096F40-A1C7-4628-BA58-FF68E9FD8573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2096F40-A1C7-4628-BA58-FF68E9FD8573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2096F40-A1C7-4628-BA58-FF68E9FD8573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2096F40-A1C7-4628-BA58-FF68E9FD8573}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

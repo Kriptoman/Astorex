@@ -1,0 +1,31 @@
+﻿@using TaskManager.Infrastructure.Constants
+@using TaskManager.Web.Controllers
+@model TaskManager.Presentation.Models.SprintModel
+@{
+    ViewBag.Title = "createsprint";
+    Layout = Views.Layout;
+}
+
+<div>
+    @using (Html.BeginForm(Actions.Create, SprintsController.Name, FormMethod.Post, Model))
+    {
+        <table class="table">
+            <tr>
+                <td>Description: </td>
+                <td colspan="3">@Html.TextBoxFor(m => m.Description, new Dictionary<string, object> { { "style", "width: 600" } })</td>
+            </tr>
+            <tr>
+                <td>Assigned to: </td>
+                <td>@Html.DropDownListFor(m => m.ProjectId, Model.Projects)</td>
+            </tr>
+            <tr>
+                <td>Start date: </td>
+                <td>@Html.TextBoxFor(m => m.StartDate)</td>
+                <td>Duration: </td>
+                <td>@Html.TextBoxFor(m => m.Duration)</td>
+            </tr>
+        </table>
+
+        <button class="btn btn-primary" type="submit">Save</button>
+    }
+</div>
