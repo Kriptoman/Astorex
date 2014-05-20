@@ -9,6 +9,7 @@
         public const string Edit = "edit";
 
         public const string GetWorkItem = "getworkitem";
+        public const string GetWorkItemsGrid = "getworkitemsgrid";
         public const string CreateTask = "createtask";
         public const string CreateSprint = "createsprint";
         public const string GetSprintsDropdown = "getsprintsdropdown";

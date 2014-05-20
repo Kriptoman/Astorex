@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using System.Web.Security;
 using TaskManager.Infrastructure.Constants;
 using TaskManager.Presentation.Models;
@@ -10,21 +12,20 @@ namespace TaskManager.Web.Controllers
     {
         public const string Name = "home";
 
-        private readonly TasksRepository _workitemsRepository ;
+        private readonly SprintsRepository _sprintsRepository;
 
         public HomeController()
         {
-            _workitemsRepository = new TasksRepository();
+            _sprintsRepository = new SprintsRepository();
         }
 
         [HttpGet]
         public ViewResult Index()
         {
-            var cookie = Request.Cookies.Get(".ASPXAUTH");
-            var ticket = FormsAuthentication.Decrypt(cookie.Value);
-            var userName = ticket.Name;
-
-            var model = _workitemsRepository.GetTasksByUser(userName);
+            var model = new HomeModel
+                {
+                    Sprints = _sprintsRepository.GetAll().ToList()
+                };
 
             return View(Views.Home, model);
         }

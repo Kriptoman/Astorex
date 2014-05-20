@@ -6,9 +6,14 @@ namespace TaskManager.Presentation.Repositories
 {
     public class TasksRepository : Repository
     {
-        public IEnumerable<HomeModel> GetTasksByUser(string userName)
+        public IEnumerable<WorkItemsGridModel> GetWorkItemsBySprint(int? sprintId = null)
         {
-            return ExecuteProcedure<HomeModel>("get_work_items_by_dev", new { userName });
+            return ExecuteProcedure<WorkItemsGridModel>("get_work_items_by_sprint", new { sprintId });
+        }
+
+        public IEnumerable<WorkItemsGridModel> GetWorkItemsByUser(string userName)
+        {
+            return ExecuteProcedure<WorkItemsGridModel>("get_work_items_by_dev", new { userName });
         }
 
         public void Create(WorkItemModel model)
@@ -41,7 +46,7 @@ namespace TaskManager.Presentation.Repositories
 
         public WorkItemModel GetWorkItem(int id)
         {
-            return ExecuteProcedure<WorkItemModel>("get_work_item_by_id", id).FirstOrDefault();
+            return ExecuteProcedure<WorkItemModel>("get_work_item_by_id", new { id }).FirstOrDefault();
         }
     }
 }

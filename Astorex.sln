@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Presentation", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Infrastructure", "TaskManager.Infrastructure\TaskManager.Infrastructure.csproj", "{A2096F40-A1C7-4628-BA58-FF68E9FD8573}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TaskManager.DataBase", "TaskManager.DataBase\TaskManager.DataBase.sqlproj", "{5172472E-0DEB-4D05-AC12-09DB4D02374A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,12 @@ Global
 		{A2096F40-A1C7-4628-BA58-FF68E9FD8573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2096F40-A1C7-4628-BA58-FF68E9FD8573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2096F40-A1C7-4628-BA58-FF68E9FD8573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5172472E-0DEB-4D05-AC12-09DB4D02374A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5172472E-0DEB-4D05-AC12-09DB4D02374A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5172472E-0DEB-4D05-AC12-09DB4D02374A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5172472E-0DEB-4D05-AC12-09DB4D02374A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5172472E-0DEB-4D05-AC12-09DB4D02374A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5172472E-0DEB-4D05-AC12-09DB4D02374A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

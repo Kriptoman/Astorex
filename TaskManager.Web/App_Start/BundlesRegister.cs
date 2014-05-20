@@ -9,8 +9,9 @@ namespace TaskManager.Web.App_Start
             bundles.Add(new ScriptBundle(WebsiteBundles.JsLayout).Include(
                 "~/Scripts/jquery-1.9.0.min.js",
                 "~/Scripts/bootstrap.min.js",
-                "~/scripts/backbone.min.js",
                 "~/scripts/underscore.min.js",
+                "~/scripts/backbone.min.js",
+                "~/scripts/common.js",
                 "~/scripts/views/views.home.js")
                 );
 

@@ -1,40 +1,21 @@
 ﻿@using TaskManager.Infrastructure.Constants
 @using TaskManager.Presentation.Models;
-@using TaskManager.Web.Controllers
 
-@model IEnumerable<HomeModel>
+@model HomeModel
 
 @{
     ViewBag.Title = "Home";
     Layout = Views.Layout;
 }
 
-<div id="view-home">
-    <table class="table">
-        <thead>
-            <tr>
-                <td>Work item</td>
-                <td>Type</td>
-                <td>Title</td>
-                <td>State</td>
-                <td>Effort</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td><a href="@Url.Action(Actions.GetWorkItem, WorkItemsController.Name, new { id = item.Id })"></a>@item.Id</td>
-                    <td>@item.Type</td>
-                    <td>@item.Title</td>
-                    <td>@item.State</td>
-                    <td>@item.Effort</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<div id="view-board">
+    <div>
+        @Html.DropDownListFor(m => m.Sprints, new SelectList(Model.Sprints, "Id", "Description"), "All")
+    </div>
+    <div id="workitems-grid">
+    </div>
 </div>
 
 <script type="text/javascript">
-    window.homeView = new HomeView();
+    window.homeView = new HomeView()
 </script>

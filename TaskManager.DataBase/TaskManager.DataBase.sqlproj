@@ -53,5 +53,39 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="StoredProcedures\create_sprint.sql" />
+    <Build Include="StoredProcedures\create_work_item.sql" />
+    <Build Include="StoredProcedures\get_all_developers.sql" />
+    <Build Include="StoredProcedures\get_all_employes.sql" />
+    <Build Include="StoredProcedures\get_all_projects.sql" />
+    <Build Include="StoredProcedures\get_all_sprints.sql" />
+    <Build Include="StoredProcedures\get_all_states.sql" />
+    <Build Include="StoredProcedures\get_all_work_items.sql" />
+    <Build Include="StoredProcedures\get_dev_report.sql" />
+    <Build Include="StoredProcedures\get_developers.sql" />
+    <Build Include="StoredProcedures\get_sprint_by_id.sql" />
+    <Build Include="StoredProcedures\get_spritns_by_period.sql" />
+    <Build Include="StoredProcedures\get_work_item_by_id.sql" />
+    <Build Include="StoredProcedures\get_work_items.sql" />
+    <Build Include="StoredProcedures\get_work_items_by_dev.sql" />
+    <Build Include="StoredProcedures\update_sprint.sql" />
+    <Build Include="StoredProcedures\update_work_item.sql" />
+    <Build Include="StoredProcedures\verify_user.sql" />
+    <Build Include="Tables\astorex_users.sql" />
+    <Build Include="Tables\departments.sql" />
+    <Build Include="Tables\development_projects.sql" />
+    <Build Include="Tables\posts.sql" />
+    <Build Include="Tables\Sprints.sql" />
+    <Build Include="Tables\team_description.sql" />
+    <Build Include="Tables\work_items.sql" />
+    <Build Include="Tables\work_items_states.sql" />
+    <Build Include="StoredProcedures\get_work_items_by_sprint.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>

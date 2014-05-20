@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace TaskManager.Presentation.Models
 {
@@ -11,7 +12,7 @@ namespace TaskManager.Presentation.Models
 
         public ReportType Type { get; set; }
 
-        public IEnumerable Staff { get; set; }
+        public IEnumerable<SelectListItem> Staff { get; set; }
 
         public int EmployeeId { get; set; }
     }

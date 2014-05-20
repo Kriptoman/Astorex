@@ -7,7 +7,7 @@
         public const string Login = "~/views/home/Login.cshtml";
         public const string Home = "~/views/home/Home.cshtml";
 
-        public const string WorkItem = "~/views/team/Workitem.cshtml";
+        public const string WorkItemsGrid = "~/views/team/WorkItemsGrid.cshtml";
         public const string CreateSprint = "~/views/team/CreateSprint.cshtml";
         public const string TaskDesk = "~/views/team/TaskDesc.cshtml";
 

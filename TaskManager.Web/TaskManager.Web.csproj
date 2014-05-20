@@ -156,10 +156,14 @@
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
+    <Content Include="Scripts\Views\views.home.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -187,7 +191,7 @@
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Team\CreateSprint.cshtml" />
     <Content Include="Views\Team\TaskDesc.cshtml" />
-    <Content Include="Views\Team\WorkItem.cshtml" />
+    <Content Include="Views\Team\WorkItemsGrid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskManager.Infrastructure\TaskManager.Infrastructure.csproj">
