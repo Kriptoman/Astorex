@@ -16,6 +16,11 @@ namespace TaskManager.Presentation.Repositories
             return ExecuteProcedure<WorkItemsGridModel>("get_work_items_by_dev", new { userName });
         }
 
+        public IEnumerable<WorkItemsGridModel> GetFilteredWorkItems(int? sprintId, int? userId)
+        {
+            return ExecuteProcedure<WorkItemsGridModel>("get_work_items_grid", new { sprintId, userId });
+        }
+
         public void Create(WorkItemModel model)
         {
             ExecuteProcedure("create_work_item", new

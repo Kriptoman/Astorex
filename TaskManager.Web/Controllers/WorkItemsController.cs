@@ -87,9 +87,9 @@ namespace TaskManager.Web.Controllers
             return View(Views.Home);
         }
 
-        public ViewResult GetWorkItemsGrid(int? sprintId)
+        public ViewResult GetWorkItemsGrid(int? sprintId, int? userId)
         {
-            var model = _tasksRepository.GetWorkItemsBySprint(sprintId).ToList();
+            var model = _tasksRepository.GetFilteredWorkItems(sprintId, userId).ToList();
 
             return View(Views.WorkItemsGrid, model);
         }

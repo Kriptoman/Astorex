@@ -10,7 +10,14 @@
 
 <div id="view-board">
     <div>
-        @Html.DropDownListFor(m => m.Sprints, new SelectList(Model.Sprints, "Id", "Description"), "All")
+        <div class="inline-block">
+            @Html.LabelFor(m => m.Sprints)
+            @Html.DropDownListFor(m => m.Sprints, new SelectList(Model.Sprints, "Id", "Description"), "All")
+        </div>
+        <div class="inline-block">
+            @Html.LabelFor(m => m.Employees)
+            @Html.DropDownListFor(m => m.Employees, new SelectList(Model.Employees, "UserId", "FullName"), "All")
+        </div>
     </div>
     <div id="workitems-grid">
     </div>

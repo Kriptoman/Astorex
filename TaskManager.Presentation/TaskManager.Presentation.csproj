@@ -39,6 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -50,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Models\CreateWorkItemModel.cs" />
     <Compile Include="Models\DevelopersModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProjectsModel.cs" />

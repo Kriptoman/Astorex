@@ -11,10 +11,11 @@ AS
 	w.[Effort],
 	w.[Reason],
 	w.[Title],
-	w.[Type],
+	wt.[Type],
 	s.[Title] as [Sprint],
 	dev.[FirstName] + dev.[LastName] as [Developer]
 	FROM [dbo].work_items as w
     LEFT JOIN [dbo].work_items_states as s on s.ID = w.StateID
 	LEFT JOIN [dbo].team_description as dev on dev.UserID = w.AssignedTo
+	LEFT JOIN [dbo].work_item_types as wt on wt.ID = w.TypeId
     WHERE w.[ID] = @ID

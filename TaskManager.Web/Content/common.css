@@ -40,3 +40,12 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.offset-top {
+    margin-top: 20px;
+}
+
+.inline-block {
+    display: inline-block;
+    margin: 3px;
+}

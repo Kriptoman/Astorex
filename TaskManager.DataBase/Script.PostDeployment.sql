@@ -14,9 +14,11 @@ IF NOT EXISTS (SELECT ID FROM [astorex_users])
 BEGIN
 	SET IDENTITY_INSERT [astorex_users] ON
 		INSERT INTO [dbo].[astorex_users] ([ID], [Username], [Password], [Email], [CreationDate], [LastLoginDate], [IsLockedOut], [PailedPasswordAttemptCount]) 
-		VALUES (1, N'n.zastrelov', N'blabla', N'zas.prog@gmail.com', '2013-12-26', '2013-12-26', 0, 3)
+		VALUES (1, N'n.zastrelov', N'123456', N'zas.prog@gmail.com', '2013-12-26', '2013-12-26', 0, 3)
 		INSERT INTO [dbo].[astorex_users] ([ID], [Username], [Password], [Email], [CreationDate], [LastLoginDate], [IsLockedOut], [PailedPasswordAttemptCount]) 
-		VALUES (2, N'a.pupkin', N'blablabla', N'pups@gmail.com', '2013-12-13', '2013-12-13', 0, 3)
+		VALUES (2, N'v.pupkin', N'123456789', N'pups@gmail.com', '2013-12-13', '2013-12-13', 0, 3)
+		INSERT INTO [dbo].[astorex_users] ([ID], [Username], [Password], [Email], [CreationDate], [LastLoginDate], [IsLockedOut], [PailedPasswordAttemptCount]) 
+		VALUES (3, N'a.vlasov', N'123456789', N'avlasa@gmail.com', '2013-12-13', '2013-12-13', 0, 3)
 	SET IDENTITY_INSERT [astorex_users] OFF
 END
 
@@ -63,6 +65,8 @@ BEGIN
 		VALUES (1, N'Sprint 23/07', 1, '2013-12-01', 4)
 		INSERT INTO [dbo].[sprints] ([ID], [Description], [ProjectID], [StartDate], [Duration])
 		VALUES (2, N'Sprint 01/08', 2, '2013-12-24', 2)
+		INSERT INTO [dbo].[sprints] ([ID], [Description], [ProjectID], [StartDate], [Duration])
+		VALUES (3, N'Sprint 02/08', 2, '2014-02-13', 2)
 	SET IDENTITY_INSERT [sprints] OFF
 END
 
@@ -86,6 +90,16 @@ BEGIN
 	SET IDENTITY_INSERT [work_items_states] OFF
 END
 
+IF NOT EXISTS (SELECT ID FROM [work_item_types])
+BEGIN
+		INSERT INTO [dbo].[work_item_types] ([ID], [Type])
+		VALUES (1, N'Task')
+        INSERT INTO [dbo].[work_item_types] ([ID], [Type])
+		VALUES (2, N'Bug')
+        INSERT INTO [dbo].[work_item_types] ([ID], [Type])
+		VALUES (3, N'Testing')
+END
+
 IF NOT EXISTS (SELECT ID FROM [team_description])
 BEGIN
 	SET IDENTITY_INSERT [team_description] ON
@@ -93,15 +107,21 @@ BEGIN
 		VALUES (1, N'Nikita', N'Zastrelov', 2, 1, 1)
         INSERT INTO [dbo].[team_description] ([ID], [FirstName], [LastName], [DepartmentID], [PostID], [UserID])
 		VALUES (2, N'Vasua', N'Pupkin', 2, 4, 2)
+		INSERT INTO [dbo].[team_description] ([ID], [FirstName], [LastName], [DepartmentID], [PostID], [UserID])
+		VALUES (3, N'Alex', N'Vlasov', 1, 2, 3)
 	SET IDENTITY_INSERT [team_description] OFF
 END
 
 IF NOT EXISTS (SELECT ID FROM [work_items])
 BEGIN
 	SET IDENTITY_INSERT [work_items] ON
-		INSERT INTO [dbo].[work_items] ([ID], [Title], [Type], [StateID], [SprintID], [Reason], [Effort], [Description], [DateStarted], [DateEnded], [BacklogPriority], [AssignedTo])
-		VALUES (1, N'Create login form', N'Task', 4, 2, N'Work paused', 8,  N'Требуется добавить страницу логина пользователя. На форме должны быть поля: пароль, имя пользователя, сохранения куков', '2013-12-25', NULL, 20, 1)
-        INSERT INTO [dbo].[work_items] ([ID], [Title], [Type], [StateID], [SprintID], [Reason], [Effort], [Description], [DateStarted], [DateEnded], [BacklogPriority], [AssignedTo])
-		VALUES (2, N'Js error on home page', N'Bug', 5, 2, N'Done', 8,  N'Смотри скрины: http://screencast.com/t/wsHCvhGVs1wr', '2013-12-22', '2013-12-22', 10, 2)
+		INSERT INTO [dbo].[work_items] ([ID], [Title], [TypeId], [StateID], [SprintID], [Reason], [Effort], [Description], [DateStarted], [DateEnded], [BacklogPriority], [AssignedTo])
+		VALUES (1, N'Create login form', 1, 4, 2, N'Work paused', 8,  N'Требуется добавить страницу логина пользователя. На форме должны быть поля: пароль, имя пользователя, сохранения куков', '2013-12-25', NULL, 20, 1)
+        INSERT INTO [dbo].[work_items] ([ID], [Title], [TypeId], [StateID], [SprintID], [Reason], [Effort], [Description], [DateStarted], [DateEnded], [BacklogPriority], [AssignedTo])
+		VALUES (2, N'Js error on home page', 2, 5, 1, N'Done', 8,  N'Смотри скрины: http://screencast.com/t/wsHCvhGVs1wr', '2013-12-22', '2013-12-22', 10, 2)
+		INSERT INTO [dbo].[work_items] ([ID], [Title], [TypeId], [StateID], [SprintID], [Reason], [Effort], [Description], [DateStarted], [DateEnded], [BacklogPriority], [AssignedTo])
+		VALUES (3, N'Something going wrong on chart', 3, 4, 2, N'Something going wrong', 8,  N'test', '2013-12-25', NULL, 25, 3)
+        INSERT INTO [dbo].[work_items] ([ID], [Title], [TypeId], [StateID], [SprintID], [Reason], [Effort], [Description], [DateStarted], [DateEnded], [BacklogPriority], [AssignedTo])
+		VALUES (4, N'Crash workitems page', 2, 5, 3, N'Crash', 8,  N'test 1', '2014-02-03', '2013-02-04', 15, 2)
 	SET IDENTITY_INSERT [work_items] OFF
 END
