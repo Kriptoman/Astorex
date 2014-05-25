@@ -64,7 +64,7 @@ namespace TaskManager.Web.Controllers
 
         public ViewResult Getworkitem(int id)
         {
-            var model = _tasksRepository.GetWorkItem(id);
+            var model = _tasksRepository.GetWorkItem(id) ?? new WorkItemModel();
 
             model.Developers = _additionalRepository.GetEmployees();
             model.Sprints = _sprintsRepository.GetAll();

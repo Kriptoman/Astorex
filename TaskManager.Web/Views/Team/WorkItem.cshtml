@@ -6,12 +6,14 @@
     Layout = null;
 }
 
-<div title="@(Model.Id > 0 ? "Edit Work Item #" + Model.Id: "Create Work Item")" style="max-height: 500px; max-width: 650px;">
+<div id="workitem-popup" title="@(Model.Id > 0 ? "Edit Work Item #" + Model.Id: "Create Work Item")" style="max-height: 550px; max-width: 700px;">
     @using (Html.BeginForm(Model.Id > 0 ? Actions.Edit : Actions.Create, WorkItemsController.Name, FormMethod.Post, Model))
     {
-        <text>Title: </text>
-        @Html.TextBoxFor(m => m.Title)
         <table class="table">
+            <tr>
+                <td>Title: </td>
+                <td colspan="3">@Html.TextBoxFor(m => m.Title)</td>
+            </tr>
             <tr>
                 <td>Type: </td>
                 <td>@Html.DropDownListFor(m => m.TypeId, new SelectList(Model.Types, "Id", "Type"))</td>

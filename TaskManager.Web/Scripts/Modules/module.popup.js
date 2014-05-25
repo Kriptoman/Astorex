@@ -4,6 +4,7 @@
 
         var options = {
             modal: true,
+            position:['middle', 55],
             resizable: false,
             autoOpen: true,
             close: function () {
@@ -16,6 +17,7 @@
             .appendTo("body");
 
         options.width = $(":first-child", dialog).width() + 20;
+        options.title = $(":first-child", dialog).attr("title");
 
         dialog
             .first()

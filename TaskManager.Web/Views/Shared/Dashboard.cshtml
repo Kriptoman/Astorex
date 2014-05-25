@@ -32,7 +32,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Management<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="@Url.Action(Actions.Index, SprintsController.Name)">Create Sprint</a></li>
-                            <li><a href="@Url.Action(Actions.Index, WorkItemsController.Name)">Create Workitem</a></li>
+                            <li><a href="#" onclick="$.popup.show('@Url.Action(Actions.Index, WorkItemsController.Name, new {id = 0})')">Create Workitem</a></li>
                         </ul>
                     </li>
                 </ul>
