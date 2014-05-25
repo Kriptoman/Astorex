@@ -25,8 +25,7 @@ namespace TaskManager.Presentation.Repositories
         {
             ExecuteProcedure("create_work_item", new
                 {
-                    model.Title,
-                    model.Type,
+                    model.TypeId,
                     model.SprintId,
                     model.StateId,
                     model.Reason,
@@ -52,6 +51,16 @@ namespace TaskManager.Presentation.Repositories
         public WorkItemModel GetWorkItem(int id)
         {
             return ExecuteProcedure<WorkItemModel>("get_work_item_by_id", new { id }).FirstOrDefault();
+        }
+
+        public IEnumerable<WorkItemsTypeModel> GetWorkItemTypes()
+        {
+            return ExecuteProcedure<WorkItemsTypeModel>("get_all_workitems_types");
+        }
+
+        public IEnumerable<WorkItemsStateModel> GetWorkItemStates()
+        {
+            return ExecuteProcedure<WorkItemsStateModel>("get_all_workitems_states");
         }
     }
 }

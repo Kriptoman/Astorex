@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace TaskManager.Presentation.Models
 {
@@ -8,19 +7,19 @@ namespace TaskManager.Presentation.Models
     {
         public int Id { get; set; }
 
-        public string Type { get; set; }
-
-        public string Title { get; set; }
+        public string TypeId { get; set; }
 
         public string StateId { get; set; }
 
-        public IEnumerable<SelectListItem> States { get; set; }
-
         public string SprintId { get; set; }
 
-        public IEnumerable<SelectListItem> Sprints{ get; set; }
+        public int AssignedTo { get; set; }
+
+        public int BacklogPriority { get; set; }
 
         public int Effort { get; set; }
+
+        public string Title { get; set; }
 
         public string Reason { get; set; }
 
@@ -30,11 +29,14 @@ namespace TaskManager.Presentation.Models
 
         public DateTime? DateEnded { get; set; }
 
-        public int AssignedTo { get; set; }
+        public IEnumerable<EmployeeModel> Developers { get; set; }
+        
+        public IEnumerable<SprintModel> Sprints { get; set; }
 
-        public IEnumerable<SelectListItem> Developers { get; set; }
+        public IEnumerable<WorkItemsStateModel> States { get; set; }
 
-        public int BacklogPriority { get; set; }
+        public IEnumerable<WorkItemsTypeModel> Types { get; set; }
+
     }
 }
 

@@ -11,13 +11,19 @@ namespace TaskManager.Web.App_Start
                 "~/Scripts/bootstrap.min.js",
                 "~/scripts/underscore.min.js",
                 "~/scripts/backbone.min.js",
+                "~/scripts/jquery.blockUI.min.js",
+                "~/scripts/jquery-ui-1.10.4.min.js",
+                "~/scripts/modules/module.popup.js",
                 "~/scripts/common.js",
-                "~/scripts/views/views.home.js")
+                "~/scripts/views/view.workitemGrid.js",
+                "~/scripts/views/view.home.js",
+                "~/scripts/views/view.dashboard.js")
                 );
 
             bundles.Add(new StyleBundle(WebsiteBundles.CssLayout).Include(
                 "~/Content/bootstrap.min.css",
                 "~/Content/bootstrap-theme.min.css",
+                "~/Content/themes/base/jquery-ui.css",
                 "~/Content/common.css")
                 );
         }

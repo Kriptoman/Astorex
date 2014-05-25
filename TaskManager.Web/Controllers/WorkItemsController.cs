@@ -23,34 +23,9 @@ namespace TaskManager.Web.Controllers
         }
 
         [HttpGet]
-        public ViewResult Index(string type)
+        public ActionResult Index(string type)
         {
-            var model = new WorkItemModel();
-
-            model.Type = type;
-            model.Sprints = _sprintsRepository
-                .GetAll()
-                .Select(spr => new SelectListItem
-                {
-                    Text = spr.Description,
-                    Value = spr.Id.ToString(CultureInfo.InvariantCulture)
-                });
-
-            model.Developers = _additionalRepository.GetDevelopers()
-                .Select(spr => new SelectListItem
-                {
-                    Text = spr.FirstName + " " + spr.LastName,
-                    Value = spr.Id.ToString(CultureInfo.InvariantCulture)
-                });
-
-            model.States = _additionalRepository.GetStates()
-                .Select(spr => new SelectListItem
-                {
-                    Text = spr.Title,
-                    Value = spr.Id.ToString(CultureInfo.InvariantCulture)
-                });
-
-            return View(Views.TaskDesk, model);
+            return RedirectToAction(Actions.GetWorkItem, new {id = 0});
         }
 
         [HttpPost]
@@ -59,17 +34,24 @@ namespace TaskManager.Web.Controllers
             if (TryValidateModel(model))
             {
                 _tasksRepository.Create(model);
+
+                Json(new { success = true, message = "OK" });
             }
 
-            return RedirectToAction(Actions.Index, HomeController.Name);
+            return Json(new { success = false, message = "Error"});
         }
 
         [HttpPost]
         public ActionResult Edit(WorkItemModel model)
         {
-            _tasksRepository.Modify(model);
+            if (TryValidateModel(model))
+            {
+                _tasksRepository.Modify(model);
 
-            return View(Views.Home);
+                Json(new { success = true, message = "OK" });
+            }
+
+            return Json(new { success = false, message = "Error" });
         }
 
         [HttpPost]
@@ -80,11 +62,16 @@ namespace TaskManager.Web.Controllers
             return View(Views.Home);
         }
 
-        public ActionResult Getworkitem(int id)
+        public ViewResult Getworkitem(int id)
         {
-            _tasksRepository.GetWorkItem(id);
+            var model = _tasksRepository.GetWorkItem(id);
 
-            return View(Views.Home);
+            model.Developers = _additionalRepository.GetEmployees();
+            model.Sprints = _sprintsRepository.GetAll();
+            model.States = _tasksRepository.GetWorkItemStates();
+            model.Types = _tasksRepository.GetWorkItemTypes();
+
+            return View(Views.WorkItem, model);
         }
 
         public ViewResult GetWorkItemsGrid(int? sprintId, int? userId)

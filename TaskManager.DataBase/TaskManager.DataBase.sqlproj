@@ -63,7 +63,7 @@
     <Build Include="StoredProcedures\get_all_employes.sql" />
     <Build Include="StoredProcedures\get_all_projects.sql" />
     <Build Include="StoredProcedures\get_all_sprints.sql" />
-    <Build Include="StoredProcedures\get_all_states.sql" />
+    <Build Include="StoredProcedures\get_all_workitems_states.sql" />
     <Build Include="StoredProcedures\get_all_work_items.sql" />
     <Build Include="StoredProcedures\get_dev_report.sql" />
     <Build Include="StoredProcedures\get_developers.sql" />
@@ -85,6 +85,7 @@
     <Build Include="Tables\work_items_states.sql" />
     <Build Include="StoredProcedures\get_work_items_by_sprint.sql" />
     <Build Include="Tables\work_item_types.sql" />
+    <Build Include="StoredProcedures\get_all_workitems_types.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

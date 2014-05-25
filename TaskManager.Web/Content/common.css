@@ -1,4 +1,14 @@
-﻿/*Sign in*/
+﻿/*Common*/
+.offset-top {
+    margin-top: 20px;
+}
+
+.inline-block {
+    display: inline-block;
+    margin: 3px;
+}
+
+/*Sign in*/
 
 body {
   padding-top: 40px;
@@ -41,11 +51,12 @@ body {
   border-top-right-radius: 0;
 }
 
-.offset-top {
-    margin-top: 20px;
+/*WorkItem popup*/
+
+#workitem-popup input, select, textarea {
+    width: 100%;
 }
 
-.inline-block {
-    display: inline-block;
-    margin: 3px;
+#workitem-popup textarea {
+    min-height: 100px;
 }

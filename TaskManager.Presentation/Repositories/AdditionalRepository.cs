@@ -5,9 +5,9 @@ namespace TaskManager.Presentation.Repositories
 {
     public class AdditionalRepository : Repository
     {
-        public IEnumerable<DevelopersModel> GetDevelopers()
+        public IEnumerable<EmployeeModel> GetEmployees()
         {
-            return ExecuteProcedure<DevelopersModel>("get_all_developers");
+            return ExecuteProcedure<EmployeeModel>("get_all_employes");
         }
 
         public IEnumerable<StatesModel> GetStates()

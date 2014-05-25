@@ -11,12 +11,12 @@ namespace TaskManager.Web.Controllers
         public const string Name = "home";
 
         private readonly SprintsRepository _sprintsRepository;
-        private readonly UsersRepository _usersRepository;
+        private readonly AdditionalRepository _additionalRepository;
 
         public HomeController()
         {
             _sprintsRepository = new SprintsRepository();
-            _usersRepository = new UsersRepository();
+            _additionalRepository = new AdditionalRepository();
         }
 
         [HttpGet]
@@ -25,7 +25,7 @@ namespace TaskManager.Web.Controllers
             var model = new HomeModel
                 {
                     Sprints = _sprintsRepository.GetAll().OrderBy(m => m.StartDate).ToList(),
-                    Employees = _usersRepository.GetUsers().OrderBy(m => m.UserId).ToList()
+                    Employees = _additionalRepository.GetEmployees().OrderBy(m => m.UserId).ToList()
                 };
 
             return View(Views.Home, model);

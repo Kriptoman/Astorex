@@ -3,27 +3,22 @@
 @model TaskManager.Presentation.Models.WorkItemModel
 
 @{
-    ViewBag.Title = "createtask";
-    Layout = Views.Layout;
+    Layout = null;
 }
 
-<div>
-    @using (Html.BeginForm(Model.Id > 0 ? Actions.Create : Actions.Edit, WorkItemsController.Name, FormMethod.Post, Model))
+<div title="@(Model.Id > 0 ? "Edit Work Item #" + Model.Id: "Create Work Item")" style="max-height: 500px; max-width: 650px;">
+    @using (Html.BeginForm(Model.Id > 0 ? Actions.Edit : Actions.Create, WorkItemsController.Name, FormMethod.Post, Model))
     {
-        if (Model.Id > 0)
-        {
-            <b>#@Model.Id;</b>
-        }
-
-        @Html.TextBoxFor(m => m.Type)
+        <text>Title: </text>
+        @Html.TextBoxFor(m => m.Title)
         <table class="table">
             <tr>
-                <td>Title: </td>
-                <td>@Html.TextBoxFor(m => m.Title)</td>
+                <td>Type: </td>
+                <td>@Html.DropDownListFor(m => m.TypeId, new SelectList(Model.Types, "Id", "Type"))</td>
             </tr>
             <tr>
                 <td>Sprint: </td>
-                <td>@Html.DropDownListFor(m => m.SprintId, Model.Sprints)</td>
+                <td>@Html.DropDownListFor(m => m.SprintId, new SelectList(Model.Sprints, "Id", "Description"))</td>
             </tr>
             <tr>
                 <td>Stard date: </td>
@@ -33,13 +28,13 @@
             </tr>
             <tr>
                 <td>Assigned to: </td>
-                <td>@Html.DropDownListFor(m => m.AssignedTo, Model.Developers)</td>
+                <td>@Html.DropDownListFor(m => m.AssignedTo, new SelectList(Model.Developers, "Id", "FullName"))</td>
                 <td>Effort: </td>
                 <td>@Html.TextBoxFor(m => m.Effort)</td>
             </tr>
             <tr>
                 <td>State: </td>
-                <td>@Html.DropDownListFor(m => m.StateId, Model.States)</td>
+                <td>@Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Title"))</td>
                 <td>Backlog priority: </td>
                 <td>@Html.TextBoxFor(m => m.BacklogPriority)</td>
             </tr>
@@ -50,11 +45,12 @@
             </tr>
             <tr>
                 <td>Description: </td>
-                <td colspan="3">@Html.TextAreaFor(m => m.Description, new Dictionary<string, object> { { "style", "width: 800; height: 200" } })</td>
+                <td colspan="3">@Html.TextAreaFor(m => m.Description)</td>
             </tr>
         </table>
-
-        <button class="btn btn-primary" type="submit">Save</button>
+        <div style="float: right; clear: both">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="cancel btn btn-link">Cancel</button>
+        </div>
     }
 </div>
-

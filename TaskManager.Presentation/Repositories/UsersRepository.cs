@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using TaskManager.Presentation.Models;
+﻿using System.Linq;
 
 namespace TaskManager.Presentation.Repositories
 {
@@ -11,9 +9,9 @@ namespace TaskManager.Presentation.Repositories
             return ExecuteProcedure<string>("verify_user", new { username, password }).FirstOrDefault() == username;
         }
 
-        public IEnumerable<EmployeeModel> GetUsers()
-        {
-            return ExecuteProcedure<EmployeeModel>("get_all_employes");
-        }
+        //public IEnumerable<EmployeeModel> GetUsers()
+        //{
+        //    return ExecuteProcedure<EmployeeModel>("get_all_employes");
+        //}
     }
 }
