@@ -1,12 +1,11 @@
 ﻿@using TaskManager.Infrastructure.Constants
 @using TaskManager.Web.Controllers
 @model TaskManager.Presentation.Models.WorkItemModel
-
 @{
     Layout = null;
 }
 
-<div id="workitem-popup" title="@(Model.Id > 0 ? "Edit Work Item #" + Model.Id: "Create Work Item")" style="max-height: 550px; max-width: 700px;">
+<div id="workitem-popup" class="two-columns-popup-window" title="@(Model.Id > 0 ? "Edit Work Item #" + Model.Id: "Create Work Item")">
     @using (Html.BeginForm(Model.Id > 0 ? Actions.Edit : Actions.Create, WorkItemsController.Name, FormMethod.Post, Model))
     {
         <table class="table">
@@ -50,7 +49,8 @@
                 <td colspan="3">@Html.TextAreaFor(m => m.Description)</td>
             </tr>
         </table>
-        <div style="float: right; clear: both">
+
+        <div class="buttons-right">
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="button" class="cancel btn btn-link">Cancel</button>
         </div>

@@ -2,17 +2,16 @@
 @using TaskManager.Web.Controllers
 @model TaskManager.Presentation.Models.SprintModel
 @{
-    ViewBag.Title = "createsprint";
-    Layout = Views.Dashboard;
+    Layout = null;
 }
 
-<div>
+<div id="sprint-popup" class="two-columns-popup-window" title="@(Model.Id > 0 ? "Edit Sprint" : "Create Sprint")">
     @using (Html.BeginForm(Actions.Create, SprintsController.Name, FormMethod.Post, Model))
     {
         <table class="table">
             <tr>
                 <td>Description: </td>
-                <td colspan="3">@Html.TextBoxFor(m => m.Description, new Dictionary<string, object> { { "style", "width: 600" } })</td>
+                <td colspan="3">@Html.TextBoxFor(m => m.Description)</td>
             </tr>
             <tr>
                 <td>Assigned to: </td>
@@ -26,6 +25,9 @@
             </tr>
         </table>
 
-        <button class="btn btn-primary" type="submit">Save</button>
+        <div class="buttons-right">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="cancel btn btn-link">Cancel</button>
+        </div>
     }
 </div>
